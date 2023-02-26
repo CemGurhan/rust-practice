@@ -1,3 +1,5 @@
+// Constants are valid for the entire time a program runs in the cope in which they are declared,
+// making them useful as global variables that the entire program may need to know about
 const GLOBAL_CONSTANT_EXAMPLE : &str = "I am a global constant";
 
 fn main() {
