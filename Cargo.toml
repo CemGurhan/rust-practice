@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "variables_and_mutability",
+    "variables_and_shadowing",
+    # Add additional projects here
+]
