@@ -16,4 +16,10 @@ fn main() {
 
     let overflow_checked_add = no_overflow_checked_add.unwrap().checked_add(22);
     println!("Output of checked_add with overflow is: {:?}", overflow_checked_add);
+
+    // Integer division in Rust is truncated to zero to the nearest integer
+    let quotient = -5.0/3.0;
+    let truncated = -5/3;
+
+    println!("Quotient value: {} | Truncated value: {}", quotient, truncated);
 }
