@@ -1,3 +1,5 @@
+use std::any::Any;
+
 fn main() {
     // If running on debug mode, Rust will check for integer overflow and panic.
     // If on release mode, this check will not occur. Instead, two's
@@ -30,4 +32,15 @@ fn main() {
     // Tuples can be destructered into new variables using pattern matching
     let (x, y, z) = tup;
     println!("Tuple destructered: {}, {}, {}", x, y, z);
+
+    // Arrays can be instantiated with square brackets and comma seperated values.
+    // Values must all be of the same type, and arrays cannot change size after declaration.
+    let array1 = [1,2,3,4,5];
+    println!("First value of array 1: {}",  array1[0]);
+    // Arrays can be typed as follows
+    let array2 : [&str; 4] = ["1","2","3","4"];
+    println!("Third value of array 2: {}", array2[2]);
+    // You can instantiate arrays of one value repeated multiple times 
+    let array3 = [3; 5];
+    println!("Array 3: {:?}", array3);
 }
