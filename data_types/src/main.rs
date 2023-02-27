@@ -22,4 +22,12 @@ fn main() {
     let truncated = -5/3;
 
     println!("Quotient value: {} | Truncated value: {}", quotient, truncated);
+
+    // Values in a tuple can be accessed via their indexes
+    let tup = (22,"hello", 3.3);
+    println!("First value in tuple is {}", tup.0);
+
+    // Tuples can be destructered into new variables using pattern matching
+    let (x, y, z) = tup;
+    println!("Tuple destructered: {}, {}, {}", x, y, z);
 }
