@@ -4,6 +4,7 @@ fn main() {
     else_if_expression(1);
     else_if_expression(4);
     else_if_expression(111);
+    println!("returned variable from if expression output: {}", let_if());
 }
 
 fn if_expression_one(x: u32) {
@@ -30,4 +31,15 @@ fn else_if_expression(x: u32) {
     } else {
         println!("no conditions true for argument: {}", x);
     }
+}
+
+fn let_if() -> i32 {
+    // As `if` is an expression, it's outcome can be assigned to a variable in a let statement.
+    // The final expression returned to the variable depends on the arm of the if expression accessed
+    let return_from_if_expression = if true {5} else {6};
+    return_from_if_expression
+    // Each arm from the if expression must return an expression of the same type. If not, 
+    // the compiler will throw an error. The compiler must be sure of a variables type to be sure
+    // of it's value everywhere in the codebase. It cannot do this at runtime or if an if expression returns
+    // mismatched types to a variable.
 }
