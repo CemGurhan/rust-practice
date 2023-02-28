@@ -3,6 +3,7 @@ fn main() {
     new_function_one();
     new_function_two(5);
     new_function_three();
+    println!("Hello from returned value in new_function_four: {}", new_function_four())
 }
 
 // functions in Rust must use snakecase with all lowercase characters
@@ -33,4 +34,11 @@ fn new_function_three() {
     // from the expression to the `z` variable.
     
     println!("Hello from new_function_three: {}", z);
+}
+
+// functions can also return values. You don't need to name the returns, only specify their types with an arrow.
+// Usually, the final expression in a function is used as the return value, but you can return early from a function
+// with the `return` keyword.
+fn new_function_four() -> u32 {
+    5
 }
