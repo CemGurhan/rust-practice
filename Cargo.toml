@@ -3,6 +3,7 @@ members = [
     "variables_and_mutability",
     "variables_and_shadowing",
     "data_types",
-    "functions"
+    "functions",
+    "control_flow"
     # Add additional projects here
 ]
