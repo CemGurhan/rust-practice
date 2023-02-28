@@ -2,6 +2,7 @@
 members = [
     "variables_and_mutability",
     "variables_and_shadowing",
-    "data_types"
+    "data_types",
+    "functions"
     # Add additional projects here
 ]
