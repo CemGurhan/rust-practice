@@ -1,15 +1,15 @@
 fn main() {
-    if_statment_one(8);
-    if_statment_one(1);
-    else_if_statement(1);
-    else_if_statement(4);
-    else_if_statement(111);
+    if_expression_one(8);
+    if_expression_one(1);
+    else_if_expression(1);
+    else_if_expression(4);
+    else_if_expression(111);
 }
 
-fn if_statment_one(x: u32) {
-    // if statements allow for logic to be implemented depending on a condition.
+fn if_expression_one(x: u32) {
+    // if expressions allow for logic to be implemented depending on a condition.
     // Conditions should always be evaluated with booleans, Rust does not automatically turn numbers into booleans.
-    // Logic that is ran after a condition is evaluated is doen in an if statement 'arm'.
+    // Logic that is ran after a condition is evaluated is done in an if expression 'arm'.
     if x > 7 {
         println!("condition was true with argument: {}", x);
     } else {
@@ -17,10 +17,10 @@ fn if_statment_one(x: u32) {
     }
 }
 
-fn else_if_statement(x: u32) {
-    // else if statements can be useful for evaluating multiple conditions.
+fn else_if_expression(x: u32) {
+    // else if expressions can be useful for evaluating multiple conditions.
     // They wont evaluate any further conditions past the fast true codition however
-    // and can get quite messy. Match statements can be useful as a cleaner alternative in that case
+    // and can get quite messy. Match can be useful as a cleaner alternative in that case
     if x > 7 {
         println!("else if first condition true with argument: {}", x);
     } else if x >= 3 {
