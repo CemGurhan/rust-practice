@@ -5,6 +5,7 @@ fn main() {
     else_if_expression(4);
     else_if_expression(111);
     println!("returned variable from if expression output: {}", let_if());
+    println!("returned content from `loop`: {}", loop_in_let_statement());
 }
 
 fn if_expression_one(x: u32) {
@@ -42,4 +43,22 @@ fn let_if() -> i32 {
     // the compiler will throw an error. The compiler must be sure of a variables type to be sure
     // of it's value everywhere in the codebase. It cannot do this at runtime or if an if expression returns
     // mismatched types to a variable.
+}
+
+fn loop_in_let_statement() -> i32 {
+    // `loop` can be used in Rust to infinetely cycle through code until told to stop.
+    // You can use a `break` to back out of a loop. You can also assign the contents of the 
+    // loop in a let statement after a `break`
+    let mut x = 1;
+    let content = loop {
+        x = x + 1;
+        if x == 5 {
+            break x * 2;
+        }
+    };
+    content
+}
+
+fn loop_label() {
+    // you can assign a label to a loop in order to distinguish between different loops:
 }
