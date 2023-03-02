@@ -1,3 +1,5 @@
+use std::ops::Range;
+
 fn main() {
     if_expression_one(8);
     if_expression_one(1);
@@ -8,6 +10,7 @@ fn main() {
     println!("returned content from `loop`: {}", loop_in_let_statement());
     loop_label();
     while_loop();
+    for_loops();
 }
 
 fn if_expression_one(x: u32) {
@@ -79,4 +82,20 @@ fn while_loop() {
         x = x - 1;
     }
     println!("broken out of conditional while loop as x has reached the value {}", x);
+}
+
+fn for_loops() {
+    // `for` loops can be great for cycling via a range of values (such as an array)
+    // safely. `for i in array` will pull out the values inside the array.
+    let array: [i32; 5] = [2, -44, 21, 6, 88];
+    for element in array {
+        if element == 88 {
+            println!("for loop halted at array value: {}", element);
+        }
+    }
+    // you can start a for loop at a particular array index. Ranging over array.len() will
+    // return `usize` indexes
+    for i in 2..array.len() {
+        println!("array value for index {} after starting at second index: {}", i, array[i]);
+    }
 }
