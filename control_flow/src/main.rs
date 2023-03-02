@@ -7,6 +7,7 @@ fn main() {
     println!("returned variable from if expression output: {}", let_if());
     println!("returned content from `loop`: {}", loop_in_let_statement());
     loop_label();
+    while_loop();
 }
 
 fn if_expression_one(x: u32) {
@@ -69,4 +70,13 @@ fn loop_label() {
         }
     }
     println!("broken from outer loop with loop label 'break_me'");
+}
+
+fn while_loop() {
+    // while loops allow you to have a loop function with some conditional logic
+    let mut x = 5;
+    while x > 2 {
+        x = x - 1;
+    }
+    println!("broken out of conditional while loop as x has reached the value {}", x);
 }
