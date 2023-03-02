@@ -98,4 +98,9 @@ fn for_loops() {
     for i in 2..array.len() {
         println!("array value for index {} after starting at second index: {}", i, array[i]);
     }
+    // you can use the `rev()` method to reverse over a set of values in a `for` loop. The `4`
+    // wont be included in the range
+    for i in (1 .. 4).rev() {
+        println!("countdown at: {}", i);
+    }
 }
