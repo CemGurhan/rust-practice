@@ -6,6 +6,7 @@ fn main() {
     else_if_expression(111);
     println!("returned variable from if expression output: {}", let_if());
     println!("returned content from `loop`: {}", loop_in_let_statement());
+    loop_label();
 }
 
 fn if_expression_one(x: u32) {
@@ -61,4 +62,11 @@ fn loop_in_let_statement() -> i32 {
 
 fn loop_label() {
     // you can assign a label to a loop in order to distinguish between different loops:
+    'break_me : loop {
+        loop {
+            println!("about to break from outer loop with loop label 'break_me'");
+            break 'break_me;
+        }
+    }
+    println!("broken from outer loop with loop label 'break_me'");
 }
