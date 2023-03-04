@@ -6,6 +6,7 @@ fn main() {
     scope();
     string_type();
     free_memory();
+    copying_primitive_complex();
 }
 
 fn scope() {
@@ -39,4 +40,22 @@ fn free_memory() {
     let s = String::from("some memory");
     println!("the String '{}' is about to return its memory used back to the allocator", s);
     }
+}
+
+fn copying_primitive_complex() {
+    // When we assign a primitive data type, like an int, to another
+    // variable, it's value gets copied off the stack and assigned to the 
+    // new variable. In this example, we see 2 values of 5 get pushed on
+    // the stack as x is copied and assigned to y
+    let x = 5;
+    let _y = x;
+
+    // When we assign a complex type, like the String type, to another variable,
+    // it's data `(which consists of a pointer that points to the allocated memory
+    // on the heap, it's length, which is the amount of memory in bytes it is using and 
+    // it's capicity, which is the amount of memory allocated to it from the allocator) 
+    // is copied instead. Both pieces of data will point to the same point of memory
+    // in the heap
+    let s1 = String::from("hello");
+    let _s2 = s1;
 }
