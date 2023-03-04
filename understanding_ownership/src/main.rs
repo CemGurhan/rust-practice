@@ -5,6 +5,7 @@ fn main() {
     // 3) when an owner goes out of scope, it's value is dropped
     scope();
     string_type();
+    free_memory();
 }
 
 fn scope() {
@@ -27,4 +28,15 @@ fn string_type() {
     string_type.push_str(", world!");
     println!("{}",string_type);
 
+}
+
+fn free_memory() {
+    // Rust will automatically return memory used by a complex variable type
+    // back to the allocator once the variable goes out of scope. A function 
+    // called `drop` is automatically called at the curly bracket.
+    // We request memory from the allocator 
+    {
+    let s = String::from("some memory");
+    println!("the String '{}' is about to return its memory used back to the allocator", s);
+    }
 }
