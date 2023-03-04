@@ -16,8 +16,8 @@ fn main() {
     // you must utilize a mutable reference to that value instead.
     let mut s2 = String::from("hello");
     mutable_reference(&mut s2);
-    
     mutable_reference_data_race();
+    immutable_references();
 } 
 
 fn reference_arg_func(s: &String) -> usize { // s is a reference to a String. In our case this String is s1
@@ -61,4 +61,14 @@ fn mutable_reference_data_race() {
     // let r33 = &mut s4; 
 
     // println!("{},{},{}", r11, r22, r33);
+}
+
+fn immutable_references() {
+    // You can have multiple immutable references at once
+    let mut s = String::from("Hello");
+    let r1 = &s;
+    let r2 = &s;
+    let r3 = &s;
+
+    println!("All immutable refernces: {}, {} and {}", r1, r2, r3);
 }
