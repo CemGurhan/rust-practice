@@ -9,7 +9,17 @@ fn main() {
     copying_primitive_complex();
     moving_values();
     clones();
-}
+    copies();
+
+    let s = String::from("hello"); // s comes into scope
+    take_ownership(s); // s is moved into this function
+                       // s is no longer valid here 
+
+    let x = 5; // x comes intos cope
+    take_copy(x); // x is copied into this function
+                  // x is still valid here
+} // x comes out of scope. s also comes out of scope, but nothing special happens (like drop). 
+ // x and s's shallow copied stack data are popped off the stack
 
 fn scope() {
     // a scope is the range in which a value is valid in a Rust program
@@ -86,3 +96,27 @@ fn clones() {
     println!("original s1: {} \ns1 cloned into s2: {}", s1, s2);
     // This is more expensive than using a move
 }
+
+fn copies() {
+    // Why does the "clone" method not have to be called here?
+    let x = 5;
+    let y = x;
+    println!("x's value is: {}\ny's value after copying x's value is: {}", x, y);
+    // This is because x and y are simple scalar types (integers). As they 
+    // exist only on the stack (fixed and immutable), implementing clone
+    // for them wouldn't make sense, as a shallow and deep copy of their 
+    // values is identical. This is due to them having no data stored on the heap.
+    // It also doesn't make sense to invalidate x for this same reason.
+
+    // Instead, the implement the "copy" trait, which performs a trivial copy
+    // of the variable on the stack. This allows for a variable to be still
+    // valid after assignment to another variable
+}
+
+fn take_ownership(s: String) { // a string comes into scope (s in our case)
+    println!("s is now about to be dropped: {}", s);
+} // s gets dropped after going out of scope. Memory is freed.
+
+fn take_copy(x: i32) { // an i32 comes into scope (x in our case)
+    println!("x is now about to go out of scope: {}",x);
+} // x comes out of scope. Nothing special happens. Popped off stack.
