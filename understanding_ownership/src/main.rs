@@ -18,6 +18,7 @@ fn main() {
     let x = 5; // x comes intos cope
     take_copy(x); // x is copied into this function
                   // x is still valid here
+    function_return_ownership();
 } // x comes out of scope. s also comes out of scope, but nothing special happens (like drop). 
  // x and s's shallow copied stack data are popped off the stack
 
@@ -120,3 +121,15 @@ fn take_ownership(s: String) { // a string comes into scope (s in our case)
 fn take_copy(x: i32) { // an i32 comes into scope (x in our case)
     println!("x is now about to go out of scope: {}",x);
 } // x comes out of scope. Nothing special happens. Popped off stack.
+
+fn function_return_ownership() {
+    let s1 = String::from("hello"); // s1 comes into scope
+
+    let s2 = take_and_give_back(s1); // s1 is moved into take_and_give_back()
+                                             // the function then moves it's return value (s1) back into s2
+
+} // s2 gets dropped. Nothing special happens to s1.
+
+fn take_and_give_back(s: String) -> String { // a string comes into scope
+    s // the string is moved back to the calling function
+}
