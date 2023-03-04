@@ -16,7 +16,20 @@ fn main() {
     // you must utilize a mutable reference to that value instead.
     let mut s2 = String::from("hello");
     mutable_reference(&mut s2);
+    
+    mutable_reference_data_race();
+} 
 
+fn reference_arg_func(s: &String) -> usize { // s is a reference to a String. In our case this String is s1
+    s.len() 
+} // As s was only a reference, the value of s1 does not have to be dropped here. This is because we never 
+  // had ownership of this value, we just had a pointer to it's representation on the stack. 
+
+fn mutable_reference(s: &mut String) {
+    s.push_str(", world");
+} 
+
+fn mutable_reference_data_race() {
     // Once you have a mutable reference to a value,
     // you no longer can have any other references to it
     // simultaneously 
@@ -24,7 +37,6 @@ fn main() {
 
     // let r1 = &mut s;
     // let r2 = &mut s;
-    // let r3 = &s;
 
     // println!("{}, {}", r1, r2);
     // This compilation error is used to prevent a data race.
@@ -39,13 +51,14 @@ fn main() {
     let r2 = &mut s3;
 
     println!("value of our mutably borrowed reference to s3 in orginal scope: {}", r2);
-} // s1 is dropped here
 
-fn reference_arg_func(s: &String) -> usize { // s is a reference to a String. In our case this String is s1
-    s.len() 
-} // As s was only a reference, the value of s1 does not have to be dropped here. This is because we never 
-  // had ownership of this value, we just had a pointer to it's representation on the stack. 
+    // we also cannot have immutable references to a variable at the same time as
+    // mutable references. This is because we don't want the value the immutable
+    // reference has borrowed from to change
+    // let mut s4 = String::from("hello");
+    // let r11 = &s4; 
+    // let r22 = &s4; 
+    // let r33 = &mut s4; 
 
-fn mutable_reference(s: &mut String) {
-    s.push_str(", world");
-} 
+    // println!("{},{},{}", r11, r22, r33);
+}
