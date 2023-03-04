@@ -65,8 +65,10 @@ fn moving_values() {
     // as s1 and s2 both point to the same location in heap memory,
     // when they go out of scope, they will both try to free the same memory,
     // leading to a double free error. Instead, Rust will consider s1 no longer
-    // valid after it is assigned to s2, and will hence not try to free
+    // valid after it is assigned to s2, and will hence not need to free
     // s1 when it goes out of scope.
     let s1 = String::from("hello");
     let _s2 = s1;
+    // As the pointer, length and data for s1 is copied to s2 and the value of s1 is
+    // invalidated, we call this a move. s1's value was moved to s2.
 }
