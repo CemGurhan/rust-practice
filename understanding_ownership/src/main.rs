@@ -8,6 +8,7 @@ fn main() {
     free_memory();
     copying_primitive_complex();
     moving_values();
+    clones();
 }
 
 fn scope() {
@@ -71,4 +72,17 @@ fn moving_values() {
     let _s2 = s1;
     // As the pointer, length and data for s1 is copied to s2 and the value of s1 is
     // invalidated, we call this a move. s1's value was moved to s2.
+
+    // s2 alone will now free memory once it goes out of scope, as s1 is now invalid.
+}
+
+fn clones() {
+    // You can choose to deeply copy a variable instead of moving it.
+    // A deep copy can be achieved using the clone method, which will 
+    // copy your stack and heap data (as opposed to just stack data with
+    // invalidation during a move)
+    let s1 = String::from("hello");
+    let s2 = s1.clone();
+    println!("original s1: {} \ns1 cloned into s2: {}", s1, s2);
+    // This is more expensive than using a move
 }
