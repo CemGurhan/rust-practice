@@ -11,9 +11,18 @@ fn main() {
     let s1 = String::from("hello");
     let len = reference_arg_func(&s1);
     println!("length of string '{}' is: {}", s1, len);
-}
+
+    // references are immutable by default. In order to change a borrowed value
+    // you must utilize a mutable reference to that value instead.
+    let mut s2 = String::from("hello");
+    mutable_reference(&mut s2);
+} // s1 is dropped here
 
 fn reference_arg_func(s: &String) -> usize { // s is a reference to a String. In our case this String is s1
     s.len() 
 } // As s was only a reference, the value of s1 does not have to be dropped here. This is because we never 
   // had ownership of this value, we just had a pointer to it's representation on the stack. 
+
+fn mutable_reference(s: &mut String) {
+    s.push_str(", world");
+} 
