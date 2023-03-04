@@ -4,6 +4,7 @@ members = [
     "variables_and_shadowing",
     "data_types",
     "functions",
-    "control_flow"
+    "control_flow",
+    "understanding_ownership"
     # Add additional projects here
 ]
