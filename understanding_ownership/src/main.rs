@@ -4,6 +4,7 @@ fn main() {
     // 2) there can be only one owner at a time
     // 3) when an owner goes out of scope, it's value is dropped
     scope();
+    string_type();
 }
 
 fn scope() {
@@ -20,4 +21,10 @@ fn string_type() {
     // The String type is instead allocated to the heap. It's size is
     // unknown at compile type and is mutable. 
     // It is a complex data type.
+
+    // String type can be mutated
+    let mut string_type = String::from("hello");
+    string_type.push_str(", world!");
+    println!("{}",string_type);
+
 }
