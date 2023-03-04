@@ -5,6 +5,7 @@ members = [
     "data_types",
     "functions",
     "control_flow",
-    "understanding_ownership"
+    "understanding_ownership",
+    "references_and_borrowing"
     # Add additional projects here
 ]
