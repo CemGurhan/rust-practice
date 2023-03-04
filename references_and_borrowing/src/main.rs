@@ -18,6 +18,7 @@ fn main() {
     mutable_reference(&mut s2);
     mutable_reference_data_race();
     immutable_references();
+    reference_scope();
 } 
 
 fn reference_arg_func(s: &String) -> usize { // s is a reference to a String. In our case this String is s1
@@ -71,4 +72,18 @@ fn immutable_references() {
     let r3 = &s;
 
     println!("All immutable refernces: {}, {} and {}", r1, r2, r3);
+}
+
+fn reference_scope() {
+    // A reference's scope lasts from when it was declared until
+    // when it was last used. 
+    let mut s = String::from("hello");
+    let r1 = &mut s;
+
+    println!("mutable reference of `s` ending now: {}", r1);
+
+    let r2 = &s;
+    let r3 = &s;
+
+    println!("immutable references of `s` ending now: {}, {}", r2, r3);
 }
