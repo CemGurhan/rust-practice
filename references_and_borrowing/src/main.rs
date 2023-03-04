@@ -16,6 +16,16 @@ fn main() {
     // you must utilize a mutable reference to that value instead.
     let mut s2 = String::from("hello");
     mutable_reference(&mut s2);
+
+    // Once you have a mutable reference to a value,
+    // you no longer can have any other references to it
+    // let mut s = String::from("hello");
+
+    // let r1 = &mut s;
+    // let r2 = &mut s;
+    // let r3 = &s;
+
+    // println!("{}, {}", r1, r2);
 } // s1 is dropped here
 
 fn reference_arg_func(s: &String) -> usize { // s is a reference to a String. In our case this String is s1
