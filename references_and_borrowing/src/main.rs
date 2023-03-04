@@ -3,7 +3,7 @@ fn main() {
     // that we can follow to get the data stored at that address.
     // It is different to a pointer as the data it points to
     // is owned by another variable. A reference in rust can 
-    // be represented with an ampersand '&'
+    // be represented with an ampersand '&' 
 
     // Borrowing is the action of creating a reference. In the folowing code,
     // we are essentially borrowing the value of s1  by creating a reference to it, 
@@ -19,6 +19,7 @@ fn main() {
 
     // Once you have a mutable reference to a value,
     // you no longer can have any other references to it
+    // simultaneously 
     // let mut s = String::from("hello");
 
     // let r1 = &mut s;
@@ -26,6 +27,18 @@ fn main() {
     // let r3 = &s;
 
     // println!("{}, {}", r1, r2);
+    // This compilation error is used to prevent a data race.
+    // We can prevent this data race from occuring by declaring
+    // a new scope, such that we create mutabke references to our value,
+    // just not all at once
+    let mut s3 = String::from("hello");
+    {
+        let r1 = &mut s3;
+        println!("value of our mutably borrowed reference to s3 in new scope: {}", r1);
+    } // r1 goes out of scope here, sucht at we can now make another mutable reference to s3
+    let r2 = &mut s3;
+
+    println!("value of our mutably borrowed reference to s3 in orginal scope: {}", r2);
 } // s1 is dropped here
 
 fn reference_arg_func(s: &String) -> usize { // s is a reference to a String. In our case this String is s1
