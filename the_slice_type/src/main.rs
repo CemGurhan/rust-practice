@@ -3,6 +3,8 @@ fn main() {
     let string1 = String::from("hello");
     let string1_slice = returning_string_slice(&string1); // Rust now knows this reference's lifetime begins here as it is passed into the function
     println!("&str returned from function: {}",string1_slice); 
+    immutable_mutable_error();
+    string_literal_immutable();
 }
 
 fn string_slices() {
@@ -48,4 +50,11 @@ fn immutable_mutable_error() {
     s.clear(); // error!
 
     // println!("the first word is: {}", word); 
+}
+
+// string literals are stored inside the binary. Hence, they are just
+// slices that point to that point in binary. Their type is &str, which
+// is an immutable reference. This is therefore why string literals are immutable
+fn string_literal_immutable() {
+    let _string_literal = "Im immutable";
 }
