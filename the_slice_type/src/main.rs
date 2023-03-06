@@ -1,10 +1,19 @@
 fn main() {
     string_slices();
     let string1 = String::from("hello");
-    let string1_slice = returning_string_slice(&string1); // Rust now knows this reference's lifetime begins here as it is passed into the function
+    
+    // Rust now knows this reference's lifetime begins here as it is passed into the function
+    let string1_slice = returning_string_slice(&string1); 
     println!("&str returned from function: {}",string1_slice); 
     immutable_mutable_error();
     string_literal_immutable();
+
+    let string_type = String::from("hello"); // a reference to a String type is basically an entire slice of that string
+    let string_literal = "hello";
+    improved_signature(&string_type);
+    improved_signature(string_literal);
+    improved_signature(&string_type[..3]);
+    improved_signature(&string_literal[1..]);
 }
 
 fn string_slices() {
@@ -57,4 +66,13 @@ fn immutable_mutable_error() {
 // is an immutable reference. This is therefore why string literals are immutable
 fn string_literal_immutable() {
     let _string_literal = "Im immutable";
+}
+
+// Taking in the &str type over &String type as a parameter to a function is better.
+// This is because the &str type can cover more types of potential arguments.
+// e.g you can pass a reference to a string &String, as this counts as an entire slice
+// of the String. You can pass in a string literal, as this is already a slice.
+fn improved_signature(s: &str) -> &str {
+    let whole_s = &s[..];
+    whole_s
 }
