@@ -1,7 +1,7 @@
 fn main() {
     string_slices();
     let string1 = String::from("hello");
-    
+
     // Rust now knows this reference's lifetime begins here as it is passed into the function
     let string1_slice = returning_string_slice(&string1); 
     println!("&str returned from function: {}",string1_slice); 
@@ -14,6 +14,8 @@ fn main() {
     improved_signature(string_literal);
     improved_signature(&string_type[..3]);
     improved_signature(&string_literal[1..]);
+
+    array_slice();
 }
 
 fn string_slices() {
@@ -75,4 +77,13 @@ fn string_literal_immutable() {
 fn improved_signature(s: &str) -> &str {
     let whole_s = &s[..];
     whole_s
+}
+
+// you can have slices to other types.
+// For example, you can have a slice of an array,
+// which jsut refers to a part of that array
+fn array_slice() {
+    let a = [1,2,3,4,5];
+    let a_slice = &a[0..3]; // the type of this array slice is &[i32]
+    println!("slice of array: {:?}", a_slice);
 }
