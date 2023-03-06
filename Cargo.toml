@@ -6,6 +6,7 @@ members = [
     "functions",
     "control_flow",
     "understanding_ownership",
-    "references_and_borrowing"
+    "references_and_borrowing",
+    "the_slice_type"
     # Add additional projects here
 ]
