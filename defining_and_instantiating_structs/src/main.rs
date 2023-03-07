@@ -48,9 +48,14 @@ fn struct_mutability() {
     println!("New email: {}", mutable_user.email);
 }
 
-fn struct_return(username: String, email: String) -> User {
+// You can return a struct instance by declaring it as a final
+// expression.
+// Here, as the email and name fields are the same as the function
+// parameters, we can use the field init shorthand in the struct
+// to avoid repition.
+fn struct_return(name: String, email: String) -> User {
     User { 
-        name: username, 
-        email: email, 
+        name, // field init shorthand
+        email, // field init shorthand
         sign_in_count: 1 }
 }
