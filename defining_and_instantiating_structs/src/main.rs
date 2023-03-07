@@ -3,6 +3,7 @@ fn main() {
     struct_mutability();
     struct_return(String::from("I am"), String::from("an email"));
     struct_update_syntax();
+    tuple_structs();
 }
 
 struct User {
@@ -88,4 +89,19 @@ fn struct_update_syntax() {
     // user2, we would still be able to use user1. This is because no
     // move occurs. The fields that are being used via the struct update syntax 
     // all implement the Copy trait and have no heap component (`sign_in_count`).
+}
+
+fn tuple_structs() {
+    // tuple structs are similar to tuples. They behave like standard
+    // structs, except you cannot name each field present, only assign a type.
+    struct Color(u32, u32, u32);
+    struct Point(u32, u32, u32);
+
+    let _black = Color(0,0,0);
+    let _origin = Point(0,0,0);
+
+    // They can be useful when:
+    // 1) You want to give the whole tuple a name
+    // 2) You want a tuple to be of a particular type
+    // 3) Naming each field in your struct is verbose/redundant
 }
