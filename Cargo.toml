@@ -8,6 +8,7 @@ members = [
     "understanding_ownership",
     "references_and_borrowing",
     "the_slice_type",
-    "defining_and_instantiating_structs"
+    "defining_and_instantiating_structs",
+    "example_program_using_structs"
     # Add additional projects here
 ]

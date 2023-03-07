@@ -15,6 +15,10 @@ name = "defining_and_instantiating_structs"
 version = "0.1.0"
 
 [[package]]
+name = "example_program_using_structs"
+version = "0.1.0"
+
+[[package]]
 name = "functions"
 version = "0.1.0"
 
