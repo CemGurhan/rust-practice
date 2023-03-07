@@ -1,6 +1,13 @@
 fn main() {
     defining_structs();    
     struct_mutability();
+    struct_return(String::from("I am"), String::from("an email"));
+}
+
+struct User {
+    name : String,
+    email : String,
+    sign_in_count : u64,
 }
 
 fn defining_structs() {
@@ -12,12 +19,6 @@ fn defining_structs() {
     // structs are similar to tuples. They can both store values with
     // different data types together. However, they are unlike each other 
     // in the sense that you must name each piece of data inside of a struct
-    struct User {
-        name : String,
-        email : String,
-        sign_in_count : u64,
-    }
-
     let _user1 = User { 
         name: String::from("username"), 
         email: String::from("an_email"), 
@@ -45,4 +46,11 @@ fn struct_mutability() {
     mutable_user.email = String::from("new_email@email.com");
 
     println!("New email: {}", mutable_user.email);
+}
+
+fn struct_return(username: String, email: String) -> User {
+    User { 
+        name: username, 
+        email: email, 
+        sign_in_count: 1 }
 }
