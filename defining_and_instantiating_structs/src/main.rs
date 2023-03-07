@@ -2,6 +2,7 @@ fn main() {
     defining_structs();    
     struct_mutability();
     struct_return(String::from("I am"), String::from("an email"));
+    struct_update_syntax();
 }
 
 struct User {
@@ -58,4 +59,33 @@ fn struct_return(name: String, email: String) -> User {
         name, // field init shorthand
         email, // field init shorthand
         sign_in_count: 1 }
+}
+
+// We can use fields from an old struct instance in a new 
+// struct instance using the struct update syntax.
+// We must specify the fields we want new, and any remaining
+// fields we want from the previous struct we can use by
+// doing `..old_struct_name`. The struct update syntax
+// must come last, as we only want to use it for remaining fields
+fn struct_update_syntax() {
+    let user1 = User { 
+        name: String::from("username"), 
+        email: String::from("an_email"), 
+        sign_in_count: 1 };
+
+    let user2 = User {
+        email: String::from("a new email"),
+        ..user1
+    };
+
+    // in this example, we can no longer use the user1 struct. This is
+    // because user2 = is an assignment, and hence, we have moved 
+    // values from user1 to user2, invalidating user1 (user2 is now
+    // the only valid stack data pointing to the heap memmory component
+    // of the old fields)
+
+    // However, if we chose to create a new field for email and name in
+    // user2, we would still be able to use user1. This is because no
+    // move occurs. The fields that are being used via the struct update syntax 
+    // all implement the Copy trait and have no heap component (`sign_in_count`).
 }
