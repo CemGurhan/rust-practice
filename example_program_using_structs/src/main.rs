@@ -2,6 +2,10 @@ fn main() {
     let rectangle1 = Rectangle { width: 10, height: 30 };
 
     println!("Rectangle area: {}", calculate_area(&rectangle1));
+
+    let rectangle2 = (200, 10);
+
+    println!("Rectangle area with: {}", calculate_area_tuple(rectangle2));
 }
 
 struct Rectangle {
@@ -20,4 +24,11 @@ struct Rectangle {
 // the Rectangle struct in main.
 fn calculate_area(rectangle: &Rectangle) -> u64 {
     rectangle.height * rectangle.width
+}
+
+// using the Rectangle struct is much clearer and more descriptive
+// than using a tuple. With tuples we can't name fields, so have
+// to do our best to understand what they represent:
+fn calculate_area_tuple(tuple: (u32, u32)) -> u32 {
+    tuple.0 * tuple.1
 }
