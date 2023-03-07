@@ -4,6 +4,7 @@ fn main() {
     struct_return(String::from("I am"), String::from("an email"));
     struct_update_syntax();
     tuple_structs();
+    unit_like_structs();
 }
 
 struct User {
@@ -104,4 +105,10 @@ fn tuple_structs() {
     // 1) You want to give the whole tuple a name
     // 2) You want a tuple to be of a particular type
     // 3) Naming each field in your struct is verbose/redundant
+}
+
+fn unit_like_structs() {
+    // We can define structs with no fields
+    struct AlwaysEqual;
+    let _subject = AlwaysEqual;
 }
