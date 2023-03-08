@@ -23,6 +23,11 @@ fn main() {
     let outcome1 = rectangle1.can_hold(&rectangle2);
     let outcome2 = rectangle1.can_hold(&rectangle3);
     println!("rectangle1 can hold rectangle2: {}\nrectangle1 can hold rectangle3: {}", outcome1, outcome2);
+
+    // The square associated function is namespaced by the struct Rectangle
+    // using `::`
+    let square = Rectangle::square(22);
+    println!("Our square: {:#?}", square);
 }
 
 #[derive(Debug)]
@@ -40,6 +45,12 @@ struct Rectangle {
 // we can take ownership of self, immutably borrow 
 // or mutably morrow from self
 impl Rectangle {
+    fn square(size: u64) -> Self{ // this associated function is not a method and acts as a constructor
+        Self {
+            width: size,
+            height: size,
+        }
+    }
     fn area(&self) -> u64 {
         self.height * self.width
     }
@@ -47,5 +58,15 @@ impl Rectangle {
         other.width < self.width && other.height < self.height
     }
 }
+// All the functions in an impl block are associated functions.
+// This is because they are associated with the struct the impl
+// block was made for. Associated functions can take the `self`
+// parameter and will hence become methods.
+// Associated functions without a `self` parameter can be used
+// without an instance of the struct. These associated
+// functions are usually used as contsructors to create a 
+// new instance of that struct.
+
+
 
 
