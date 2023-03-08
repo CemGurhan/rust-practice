@@ -57,11 +57,15 @@ fn debug_display() {
         age: u32
     }
 
-    let person1 = Hobbit {
+    let hobbit1 = Hobbit {
         name : String::from("Bilbo"),
         surname : String::from("Baggins"),
         age : 111
     };
 
-    println!("Printing struct with the `Debug` trait: {:?}", person1);
+    println!("Printing struct with the `Debug` trait: {:?}", hobbit1);
+
+    // We can make the format nicer by using the following placeholder
+    // {:#?}
+    println!("Printing struct prettier with the `Debug` trait: {:#?}", hobbit1);
 }
