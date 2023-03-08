@@ -69,3 +69,28 @@ fn debug_display() {
     // {:#?}
     println!("Printing struct prettier with the `Debug` trait: {:#?}", hobbit1);
 }
+
+fn debug_macro() {
+    // We can use the `dbg!` macro when we want to utilize the 
+    // `Debug` format. It will take ownership of an expression, 
+    // print out the file in which it was called, the line number,
+    // and then return ownership. 
+    // It prints to the standard error stream `stderr` as opposed
+    // to the standard output stream `stdout`.
+    #[derive(Debug)]
+    struct Hobbit{
+        name : String,
+        surname : String,
+        age : u32
+    }
+
+    let multiplier = 2;
+
+    let hobbit2 = Hobbit {
+        name : String::from("Frodo"),
+        surname : String::from("Baggins"),
+        age : dbg!(25 * multiplier)
+    };
+
+    dbg!(&hobbit2);
+}
