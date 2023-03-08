@@ -1,6 +1,8 @@
 fn main() {
     defining_enums();
     enums_vs_structs();
+    enums_and_structs();
+    enums_and_methods();
 }
 
 fn defining_enums() {
@@ -69,4 +71,44 @@ fn enums_vs_structs() {
 
      let home_3 = IpAddr_2::V4(127,0,0,1);
      let loopback_3 = IpAddr_2::V6(String::from("::1"));
+}
+
+fn enums_and_structs() {
+    enum Message {
+        Quit,
+        Move {x : i32, y : i32},
+        Write(String),
+        ChangeColour(i32,i32,i32)
+    }
+    // We can write this enum as a set of structs
+    struct Quit; // unit struct
+    struct Move {
+        x : i32,
+        y : i32
+    }
+    struct Write(String); // tuple struct
+    struct ChangeColour(i32, i32, i32); // tuple struct
+    // Each of these structs has their own type,
+    // whereas with the enum all variants were namespaced 
+    // under the same type.
+}
+
+fn enums_and_methods() {
+    // We can define methods for an enum using impl
+    enum Message {
+        Quit,
+        Move {x : i32, y : i32},
+        Write(String),
+        ChangeColour(i32,i32,i32)
+    }
+
+    impl Message {
+        fn call(&self) {
+        }
+    }
+
+    let m = Message::Write(String::from("hello"));
+    m.call();
+    // here, self represents the variant that called the method,
+    // so is represented by Message::Write(String::from("hello"))
 }
