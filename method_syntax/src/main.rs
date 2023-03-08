@@ -10,6 +10,19 @@ fn main() {
     // Rust automatically referenced for us, so these two are the same:
     //                    rectangle1.area()
     //                    (&rectangle1).area()
+
+    let rectangle2 = Rectangle {
+        width : 20,
+        height : 10
+    };
+    let rectangle3 = Rectangle {
+        width : 80,
+        height : 10
+    };
+
+    let outcome1 = rectangle1.can_hold(&rectangle2);
+    let outcome2 = rectangle1.can_hold(&rectangle3);
+    println!("rectangle1 can hold rectangle2: {}\nrectangle1 can hold rectangle3: {}", outcome1, outcome2);
 }
 
 #[derive(Debug)]
@@ -29,6 +42,9 @@ struct Rectangle {
 impl Rectangle {
     fn area(&self) -> u64 {
         self.height * self.width
+    }
+    fn can_hold(&self, other: &Rectangle) -> bool {
+        other.width < self.width && other.height < self.height
     }
 }
 
