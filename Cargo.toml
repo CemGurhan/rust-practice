@@ -9,6 +9,7 @@ members = [
     "references_and_borrowing",
     "the_slice_type",
     "defining_and_instantiating_structs",
-    "example_program_using_structs"
+    "example_program_using_structs",
+    "method_syntax"
     # Add additional projects here
 ]
