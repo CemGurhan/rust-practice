@@ -10,6 +10,7 @@ members = [
     "the_slice_type",
     "defining_and_instantiating_structs",
     "example_program_using_structs",
-    "method_syntax"
+    "method_syntax",
+    "defining_an_enum"
     # Add additional projects here
 ]
