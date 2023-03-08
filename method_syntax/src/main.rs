@@ -4,6 +4,12 @@ fn main() {
         height: 70
     };
     println!("area of rectangle: {}", rectangle1.area());
+    // Rust can automatically reference and dereference based on
+    // self. For example, here, we called rectangle1.area(), when
+    // area() expected the reciever to be a reference.
+    // Rust automatically referenced for us, so these two are the same:
+    //                    rectangle1.area()
+    //                    (&rectangle1).area()
 }
 
 #[derive(Debug)]
