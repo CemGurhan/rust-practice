@@ -53,14 +53,14 @@ fn enums_vs_structs() {
 
     let home_2 = IpAddr::V4(String::from("127.0.0.1"));
     let loopback_one = IpAddr::V6(String::from("::1"));
-    // enum fields can become a function that constructs a 
+    // enum variants can become a function that constructs a 
     // new instance of that enum. The function cosntructor here
     // takes in a String and then constructs a new instance of
     // IpAddr
 
     // Another advantage is, we can have different types and amounts
-    // of data associated with an enum field. We can have an IpAddr
-    // enum that has one field have a constructor that takes in only
+    // of data associated with an enum variant. We can have an IpAddr
+    // enum that has one variant have a constructor that takes in only
     // u8's (V4) and another a String (V6)
      enum IpAddr_2 {
         V4(u8,u8,u8,u8),
