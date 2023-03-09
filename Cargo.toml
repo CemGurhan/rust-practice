@@ -12,6 +12,7 @@ members = [
     "example_program_using_structs",
     "method_syntax",
     "defining_an_enum",
-    "the_match_control_flow_construct"
+    "the_match_control_flow_construct",
+    "concise_flow_with_if_let"
     # Add additional projects here
 ]
