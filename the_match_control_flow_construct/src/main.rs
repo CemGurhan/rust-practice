@@ -1,5 +1,5 @@
 fn main() {
-    println!("Hello, world!");
+    patterns_that_bind_to_values();
 }
 
 enum Coin {
@@ -40,4 +40,37 @@ fn coin_2(coin: Coin) -> u8 {
         Coin::Dime => 10,
         Coin::Quarter => 25,
     }
+}
+
+fn patterns_that_bind_to_values() -> u8 {
+    // Let's say that quarters can have a specific US state
+    // printed on one side.
+    #[derive(Debug)] // so we can print out and debug later
+    enum State {
+        Alabama,
+        Alaska,
+        // etc.
+    }
+
+    enum Coin {
+        Penny,
+        Nickel,
+        Dime,
+        Quarter(State),
+    }
+    let coin = Coin::Quarter(State::Alabama);
+    // We can then bind the state of a quarter to a value in
+    // our match expression's arm
+    match coin {
+        Coin::Penny => 1,
+        Coin::Nickel => 5,
+        Coin::Dime => 10,
+        Coin::Quarter(state) => {
+            println!("Our coins state is: {:?}", state);
+            25
+        },
+    }
+    // This provides us with a means of extracting the values stored 
+    // in enums. We binded the value of the quarter `State::Alabama`
+    // into the variable `state` which we can then use in our code.
 }
