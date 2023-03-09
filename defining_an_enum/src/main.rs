@@ -112,3 +112,32 @@ fn enums_and_methods() {
     // here, self represents the variant that called the method,
     // so is represented by Message::Write(String::from("hello"))
 }
+
+fn option_type() {
+    // The Option<T> enum allows you to encode the scenario
+    // of having a value being absent or present. It consists
+    // of two variants, `Some(T)` and None. Both these variants
+    // are present in the Rust prelude, along with the entire 
+    // Option<T> enum.
+    // The Option enum takes a generic type parameter `T`,
+    // which can then be used as an argument to the `Some` 
+    // function constructor as a means of constructing an 
+    // Option<T> enum of type T.
+    // `Option<T>` is better than `Null` due to the fact that
+    // the `T` and `Option<T>` are two different types. 
+    // Rust won't let you use `Option<T>` as if it were a valid
+    // value. You can't add an Option<i8> to an i8 for example.
+    // This is because there is always the case that a value is
+    // absent when using `Option<T>`, so we must handle that case
+    // before we can safely use the value `T`.
+
+    let some_number = Some(5);
+    let some_char = Some('c');
+    
+    let absent_number : Option<i32> = None;
+    // We must specify the type of absent number as `Option<i32>`,
+    // as Rust wont know what the value of `T` should be for 
+    // the `Some(T)` value of this `Option<T>` if we instantiate it 
+    // as `None`.
+    
+}
