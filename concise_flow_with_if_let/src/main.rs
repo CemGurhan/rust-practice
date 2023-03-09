@@ -16,4 +16,7 @@ fn if_let() {
     if let Some(max) = config_max {
         println!("Max value is: {}", max);
     }
+    // `if let` is good when we want to be more concise, but
+    // can mean you miss out on the exhaustiveness given to you
+    // form a match expression.
 }
