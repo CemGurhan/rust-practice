@@ -11,6 +11,7 @@ members = [
     "defining_and_instantiating_structs",
     "example_program_using_structs",
     "method_syntax",
-    "defining_an_enum"
+    "defining_an_enum",
+    "the_match_control_flow_construct"
     # Add additional projects here
 ]
