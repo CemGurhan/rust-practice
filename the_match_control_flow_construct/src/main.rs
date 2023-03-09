@@ -1,5 +1,9 @@
 fn main() {
     patterns_that_bind_to_values();
+    let five = Some(5);
+    let absent_number : Option<i32> = None;
+    let _six = matching_options(five);
+    let _absent = matching_options(absent_number);
 }
 
 enum Coin {
@@ -73,4 +77,18 @@ fn patterns_that_bind_to_values() -> u8 {
     // This provides us with a means of extracting the values stored 
     // in enums. We binded the value of the quarter `State::Alabama`
     // into the variable `state` which we can then use in our code.
+}
+
+fn matching_options(x: Option<i32>) -> Option<i32> {
+    // We can use match statements to work with Option<T> enums 
+    // and their variants.
+    // We can use match statements pattern binding to bind to a
+    // value insise the Some(T) variant of an Option<T> enum.
+    match x {
+        None => None,
+        Some(i) => Some(i + 1)
+    }
+    // We can bind the pattern Some(i) to whatever `Some(i32)`
+    // enters our match expression, such that we can execute logic on 
+    // i32 value that the entering Some(i32) variant contained.
 }
