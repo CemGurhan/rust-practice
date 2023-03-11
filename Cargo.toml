@@ -15,6 +15,7 @@ members = [
     "the_match_control_flow_construct",
     "concise_flow_with_if_let",
     "defining_modules",
-    "restaurant"
+    "restaurant",
+    "hello_module_tree_example"
     # Add additional projects here
 ]
