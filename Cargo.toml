@@ -16,6 +16,7 @@ members = [
     "concise_flow_with_if_let",
     "defining_modules",
     "restaurant",
-    "hello_module_tree_example"
+    "hello_module_tree_example",
+    "making_structs_and_enums_public"
     # Add additional projects here
 ]

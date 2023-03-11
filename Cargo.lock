@@ -39,6 +39,10 @@ name = "hello_module_tree_example"
 version = "0.1.0"
 
 [[package]]
+name = "making_structs_and_enums_public"
+version = "0.1.0"
+
+[[package]]
 name = "method_syntax"
 version = "0.1.0"
 
