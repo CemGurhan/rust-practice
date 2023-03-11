@@ -13,6 +13,7 @@ members = [
     "method_syntax",
     "defining_an_enum",
     "the_match_control_flow_construct",
-    "concise_flow_with_if_let"
+    "concise_flow_with_if_let",
+    "defining_modules"
     # Add additional projects here
 ]
