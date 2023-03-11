@@ -43,6 +43,10 @@ name = "references_and_borrowing"
 version = "0.1.0"
 
 [[package]]
+name = "restaurant"
+version = "0.1.0"
+
+[[package]]
 name = "the_match_control_flow_construct"
 version = "0.1.0"
 

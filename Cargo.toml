@@ -14,6 +14,7 @@ members = [
     "defining_an_enum",
     "the_match_control_flow_construct",
     "concise_flow_with_if_let",
-    "defining_modules"
+    "defining_modules",
+    "restaurant"
     # Add additional projects here
 ]
