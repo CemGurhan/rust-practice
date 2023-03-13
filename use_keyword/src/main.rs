@@ -23,6 +23,22 @@ use front_of_house::hosting;
 // seem as if the module `back_rooms` was not defined
 // in `hosting`, but instead `front_of_house`
 use front_of_house::back_rooms;
+
+// We can use `nested paths` to bring multiple items from the 
+// same crate together into one `use` line. For example:
+// use std::cmp::Ordering;
+// use std::arch;
+// Can become:
+use std::{arch, cmp::Ordering};
+
+// `nested paths` can also be used when importing items from the
+// same path:
+// use std::backtrace;
+// use std::backtrace::Backtrace;
+// Can be written as:
+use std::backtrace::{self, Backtrace};
+
+
 fn main() {
     // It is idiomatic to not use the full path to a function.
     // This is because we would want to know where our function
