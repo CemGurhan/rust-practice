@@ -17,6 +17,7 @@ members = [
     "defining_modules",
     "restaurant",
     "hello_module_tree_example",
-    "making_structs_and_enums_public"
+    "making_structs_and_enums_public",
+    "use_keyword"
     # Add additional projects here
 ]
