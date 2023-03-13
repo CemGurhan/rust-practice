@@ -38,6 +38,12 @@ use std::{arch, cmp::Ordering};
 // Can be written as:
 use std::backtrace::{self, Backtrace};
 
+// We can use a `glob operator` to import everything from a path.
+use std::collections::*;
+// This can be bad however, as we have no idea where an item in this scope 
+// was defined, or what names are in scope.
+
+
 
 fn main() {
     // It is idiomatic to not use the full path to a function.
@@ -51,4 +57,6 @@ fn main() {
     hosting::add_to_waitlist();
 
     back_rooms::enter_the_backrooms();
+
+    
 }
