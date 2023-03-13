@@ -19,6 +19,10 @@ fn an_example_of_idiomatic() {
 
 use front_of_house::hosting;
 
+// We can use `pub use` to re-export an item. This makes it
+// seem as if the module `back_rooms` was not defined
+// in `hosting`, but instead `front_of_house`
+use front_of_house::back_rooms;
 fn main() {
     // It is idiomatic to not use the full path to a function.
     // This is because we would want to know where our function
@@ -29,4 +33,6 @@ fn main() {
     //
     // add_to_waitlist();
     hosting::add_to_waitlist();
+
+    back_rooms::enter_the_backrooms();
 }
