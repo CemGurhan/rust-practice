@@ -7,6 +7,10 @@ use std::collections::HashMap;
 // specify the full path
 use std::io;
 use std::fmt;
+// You can also use the `as` keyword to create a new name or
+// 'alias' for the type. This is also considered idiomatic
+use std::io::Error;
+use std::fmt::Error as FmtError;
 
 fn an_example_of_idiomatic() {
     let r1 = io::Result::Ok(());
