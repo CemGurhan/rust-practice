@@ -1,6 +1,7 @@
 fn main() {
     create_string();
     updating_a_string();
+    string_concatenation();
 }
 
 // The String type has many similar properties to a vector,
@@ -25,5 +26,28 @@ fn updating_a_string() {
     let mut s2 = String::from("by");
     s2.push('e');
     println!("Mutated string with `push`: {}", s2);
+}
 
+fn string_concatenation() {
+    // You can add together two String's with the `+` operator.
+    // This operator calls the `add` function, which takes ownership
+    // of the string you are adding to, takes a reference of the 
+    // String's data you are adding with and returns ownership to 
+    // the result. You cannot concatenate two String's, hence, a 
+    // reference is required. 
+    let s1 = String::from("foo");
+    let s2 = String::from("bar");
+    let s3 = s1 + &s2; // s1 no longer valid from this point on
+    println!("concatenated with the `+` operator: {s3}");
+    // Rust can use `deref coercian` to coerce the type &String
+    // to &str when using &s2.
+
+    // If you don't want ownership to be a problem and you
+    // want a neater representation of multiple strings added together,
+    // you can use the `format!` macro
+    let st1 = String::from("hi");
+    let st2 = String::from("hello");
+    let st3 = String::from("greetings");
+    let st4 = format!("Different ways to greet: {st1}, {st2} and {st3}");
+    println!("{}",st4);
 }
