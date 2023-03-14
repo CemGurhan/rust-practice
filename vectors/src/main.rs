@@ -1,6 +1,7 @@
 fn main() {
     vector_defines();
     adding_to_vectors();
+    receiving_from_vectors();
 }
 
 
@@ -23,4 +24,30 @@ fn adding_to_vectors() {
     // int, we dont need to define the type of the Vector.
     let mut v = Vec::new();
     v.push(2);
+}
+
+fn receiving_from_vectors() {
+    let v = vec![3,4,22,1,-10];
+    // We can take values of a vector using either it's index value,
+    // or by using the `get` method
+    let third = &v[2];
+    println!("via index: {}", third);
+    
+    let third = v.get(2);
+    match third {
+        Some(v) => println!("via get: {}", v),
+        None => println!("Nothing returned via get!")
+    };
+}
+
+fn using_enums_in_vectors() {
+    // we can use enums to store values of different data types in a vector
+    enum Values {
+        Integer(i32),
+        Text(String),
+        Float(f64),
+    }
+    let v = vec![Values::Integer(2), 
+                              Values::Text(String::from("Hello")), 
+                              Values::Float(2.1)];
 }
