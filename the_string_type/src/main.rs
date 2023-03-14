@@ -51,3 +51,14 @@ fn string_concatenation() {
     let st4 = format!("Different ways to greet: {st1}, {st2} and {st3}");
     println!("{}",st4);
 }
+
+fn iterating_over_strings() {
+    for c in "Зд".chars() {
+        println!("{c}");
+    }
+    // each unicode scalar value for these non-ASCII
+    // types represent 2 bytes after UTF-8 encoding
+    for b in "Зд".bytes() {
+        println!("{b}");
+    }
+}
