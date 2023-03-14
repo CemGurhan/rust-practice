@@ -18,6 +18,7 @@ members = [
     "restaurant",
     "hello_module_tree_example",
     "making_structs_and_enums_public",
-    "use_keyword"
+    "use_keyword",
+    "vectors"
     # Add additional projects here
 ]
