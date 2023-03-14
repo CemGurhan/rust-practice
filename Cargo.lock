@@ -63,6 +63,10 @@ name = "the_slice_type"
 version = "0.1.0"
 
 [[package]]
+name = "the_string_type"
+version = "0.1.0"
+
+[[package]]
 name = "understanding_ownership"
 version = "0.1.0"
 
