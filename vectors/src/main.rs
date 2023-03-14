@@ -1,5 +1,6 @@
 fn main() {
-    println!("Hello, world!");
+    vector_defines();
+    adding_to_vectors();
 }
 
 
@@ -14,4 +15,12 @@ let v: Vec<i32> = Vec::new();
 // inside using the `vec!` macro. This way, you also
 // don't have to define the type stored inside the Vec
 let v1 = vec![0,33,-10,4,1];
+}
+
+fn adding_to_vectors() {
+    // We must make the vec mutable, as all variables in
+    // Rust are immutable by default. As we are pushing an
+    // int, we dont need to define the type of the Vector.
+    let mut v = Vec::new();
+    v.push(2);
 }
