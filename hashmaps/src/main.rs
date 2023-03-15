@@ -5,6 +5,7 @@ fn main() {
     accessing_values_in_hashmaps();
     iterating_over_hashmaps();
     updating_hashmaps();
+    updating_hashmap_mutable_references();
 }
 
 fn new_hashmap() {
@@ -74,4 +75,11 @@ fn updating_hashmaps() {
         *count += 1;
     }
     println!("{:?}", map);
+}
+
+fn updating_hashmap_mutable_references() {
+    let mut map = HashMap::new();
+    let mutable_reference_to_value = map.entry("Add Me!").or_insert(115);
+    *mutable_reference_to_value = 999;
+    println!("After change to mutable reference: {:?}", map);
 }
