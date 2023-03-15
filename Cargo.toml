@@ -21,6 +21,7 @@ members = [
     "use_keyword",
     "vectors",
     "the_string_type",
-    "hashmaps"
+    "hashmaps",
+    "unwind_vs_abort"
     # Add additional projects here
 ]
