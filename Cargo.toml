@@ -20,6 +20,7 @@ members = [
     "making_structs_and_enums_public",
     "use_keyword",
     "vectors",
-    "the_string_type"
+    "the_string_type",
+    "hashmaps"
     # Add additional projects here
 ]
