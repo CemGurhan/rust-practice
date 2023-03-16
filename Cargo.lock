@@ -51,6 +51,10 @@ name = "method_syntax"
 version = "0.1.0"
 
 [[package]]
+name = "panic_backtrace"
+version = "0.1.0"
+
+[[package]]
 name = "references_and_borrowing"
 version = "0.1.0"
 

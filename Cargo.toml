@@ -22,6 +22,7 @@ members = [
     "vectors",
     "the_string_type",
     "hashmaps",
-    "unwind_vs_abort"
+    "unwind_vs_abort",
+    "panic_backtrace"
     # Add additional projects here
 ]
