@@ -1,4 +1,4 @@
-use std::{fs, fs::File, io::Read};
+use std::{fs, fs::File, io::{Read, Error}};
 
 // We can use error propagation to return errors back
 // to the caller of a function. This way, the error can
@@ -45,6 +45,7 @@ pub fn read_username_from_file_shortened_two() -> Result<String, std::io::Error>
 pub fn read_username_from_file_fs_function() -> Result<String, std::io::Error> {
     fs::read_to_string("username.txt")
 }
+
 
 
 
