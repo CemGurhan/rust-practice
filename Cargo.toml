@@ -25,6 +25,7 @@ members = [
     "unwind_vs_abort",
     "panic_backtrace",
     "pub_use_example",
-    "module_code_location_experiment"
+    "module_code_location_experiment",
+    "the_result_type"
     # Add additional projects here
 ]
