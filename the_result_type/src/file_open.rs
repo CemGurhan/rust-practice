@@ -1,5 +1,7 @@
 use std::fs::File;
 
+pub mod propagate_error;
+
 // We can use the `Result<T, E>` enum to encode the scenario
 // where an operation is successful or fails.
 // The `Result<T, E>` enum has two vairants, `Ok(T)` and
@@ -15,4 +17,8 @@ fn _open() {
         Ok(file) => file, // return file handle to `greeting_file` variable
         Err(error) => panic!("Error {:?}", error), // call `panic!` macro on error
     };
+}
+
+fn _open_propagte_error() {
+
 }

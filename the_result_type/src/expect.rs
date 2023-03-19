@@ -6,8 +6,8 @@ use std::fs::File;
 // custom message
 fn _expect_example() {
     let _greeting_file = File::open("hello.txt")
-    .expect("The file 'hello.txt' should be prsent in this project.");
+    .expect("The file 'hello.txt' should be present in this project.");
 }
 // `expect` is what should be used in production instead of `unwrap`.
 // It is more descriptive as to what the context of the code you are 
-// always expecting to succeed is.
+// always expecting to succeed is meant to do.
