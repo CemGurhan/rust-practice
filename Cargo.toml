@@ -23,6 +23,7 @@ members = [
     "the_string_type",
     "hashmaps",
     "unwind_vs_abort",
-    "panic_backtrace"
+    "panic_backtrace",
+    "pub_use_example"
     # Add additional projects here
 ]
