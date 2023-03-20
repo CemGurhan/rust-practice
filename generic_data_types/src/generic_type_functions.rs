@@ -22,3 +22,6 @@ pub fn largest<T: std::cmp::PartialOrd>(list: &[T]) -> &T {
 
     largest
 }
+
+// We'd say the function `largest` is
+// "generic over type `T`"
