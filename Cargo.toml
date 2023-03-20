@@ -26,6 +26,7 @@ members = [
     "panic_backtrace",
     "pub_use_example",
     "module_code_location_experiment",
-    "the_result_type"
+    "the_result_type",
+    "generic_data_types"
     # Add additional projects here
 ]

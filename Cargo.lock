@@ -35,6 +35,10 @@ name = "functions"
 version = "0.1.0"
 
 [[package]]
+name = "generic_data_types"
+version = "0.1.0"
+
+[[package]]
 name = "hashmaps"
 version = "0.1.0"
 
