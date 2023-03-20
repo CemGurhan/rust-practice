@@ -12,7 +12,6 @@ pub fn option_to_result() -> i32 {
 }
 
 // We can convert from `Result` to `Option` with `ok`
-
 pub fn result_to_option() -> Option<String> {
     let converted = fs::read_to_string("username.txt").ok();
     converted
