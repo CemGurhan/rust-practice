@@ -27,6 +27,7 @@ members = [
     "pub_use_example",
     "module_code_location_experiment",
     "the_result_type",
-    "generic_data_types"
+    "generic_data_types",
+    "traits"
     # Add additional projects here
 ]
