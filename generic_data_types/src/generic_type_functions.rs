@@ -8,6 +8,17 @@
 // parameters in the function signature
 // Here, our function can take in a slice containing
 // the generic type `T`
-pub fn take_a_list<T>(list: &[T]) -> &T {
+// We have to only accept generic types that implement
+// the `std::cmp::PartialOrd` trait, as you can only compare
+// values that can be ordered on line 17
+pub fn largest<T: std::cmp::PartialOrd>(list: &[T]) -> &T {
+    let mut largest = &list[0];
 
+    for item in list {
+        if item > largest {
+            largest = item;
+        }
+    }
+
+    largest
 }
