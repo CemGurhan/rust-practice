@@ -28,6 +28,6 @@ members = [
     "module_code_location_experiment",
     "the_result_type",
     "generic_data_types",
-    "traits"
+    "traits/aggregator",
     # Add additional projects here
 ]
