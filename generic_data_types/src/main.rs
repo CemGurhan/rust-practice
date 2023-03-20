@@ -1,4 +1,6 @@
 pub mod generic_type_functions;
+pub mod generic_type_structs;
+pub mod generic_type_enums;
 
 fn main() {
     println!("Hello, world!");
