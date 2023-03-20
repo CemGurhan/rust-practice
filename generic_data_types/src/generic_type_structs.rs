@@ -18,7 +18,6 @@ pub struct PointNew<T, U> {
     y: U,
 }
 // We'd say `Point<T, U>` is generic over types `T` and `U`.
-// Remember, `Point<T>` and `Point<T,U>` are different types now.
 fn do_stuff_with_new_point() {
     let xx = PointNew {x: 12, y: 3.1};
     let yy = PointNew {x: 1.1, y: 2};
