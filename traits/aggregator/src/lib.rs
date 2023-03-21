@@ -36,8 +36,9 @@ pub fn notify(item: &impl Summary) {
     println!("Breaking news! {}", item.summarize());
 }
 
+// `impl trait` is a trait bound.
 // The `impl trait` parameter is shorthand for the `trait
-// bound` syntax
+// bound on genric types` syntax
 pub fn notify_two<T: Summary>(item: &T) {
     println!("Breaking news! {}", item.summarize());
 }
@@ -51,4 +52,16 @@ pub fn notify_wrong(item1: &impl Summary, impl2: &impl Summary) {   // This
                                                                     //  |   
 pub fn notify_right<T: Summary>(item1: &T, item2: &T) {             // Should be this
     // logic 
-}                                                                    
+}     
+
+// We can have multiple trait bounds as a function parameter by using
+// `+`
+// This way, notify can call `summarize` and use `{}` to format item
+pub fn notfiy_two(item1: &(impl Summary + std::fmt::Display)) { 
+    // some logic
+}
+
+// You can do the same with trait bounds on generic types
+pub fn notify_two_generic<T: Summary + std::fmt::Display>(item1: &T) {
+    
+}
