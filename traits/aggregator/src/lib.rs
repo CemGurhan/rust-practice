@@ -27,3 +27,9 @@ impl Summary for NewsArticle {
         format!("{}, by {} ({})", self.headline, self.author, self.location)
     }
 }
+
+// We can have functions accept only items that implement
+// a specific trait and then do stuff with those items
+pub fn notify(item: &impl Summary) {
+    println!("Breaking news! {}", item.summarize());
+}

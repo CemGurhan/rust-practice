@@ -27,5 +27,5 @@ fn _summarize_example_two() {
                                         author: "todo!()".to_string(), 
                                         content: "todo!()".to_string() 
                                     };
-    println!("{}",n.author);
+    println!("{}",n.summarize());
 }
