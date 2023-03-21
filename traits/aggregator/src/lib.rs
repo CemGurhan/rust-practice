@@ -1,3 +1,5 @@
+use std::iter::Sum;
+
 // A trait allows us to define some functionality that
 // can be shared amongst different types. traits are 
 // very similar to interfaces.
@@ -33,3 +35,20 @@ impl Summary for NewsArticle {
 pub fn notify(item: &impl Summary) {
     println!("Breaking news! {}", item.summarize());
 }
+
+// The `impl trait` parameter is shorthand for the `trait
+// bound` syntax
+pub fn notify_two<T: Summary>(item: &T) {
+    println!("Breaking news! {}", item.summarize());
+}
+
+// The `trait bound` syntax should be used instead of `impl trait`
+// parameters if we have multiple paramtes of the same `impl trait`
+// type
+pub fn notify_wrong(item1: &impl Summary, impl2: &impl Summary) {   // This 
+    // logic                                                        //  |    
+}                                                                   //  |  
+                                                                    //  |   
+pub fn notify_right<T: Summary>(item1: &T, item2: &T) {             // Should be this
+    // logic 
+}                                                                    
