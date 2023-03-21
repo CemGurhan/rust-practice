@@ -29,5 +29,6 @@ members = [
     "the_result_type",
     "generic_data_types",
     "traits/aggregator",
+    "traits/default_implementations"
     # Add additional projects here
 ]

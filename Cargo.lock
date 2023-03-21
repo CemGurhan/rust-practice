@@ -19,6 +19,10 @@ name = "data_types"
 version = "0.1.0"
 
 [[package]]
+name = "default_implementations"
+version = "0.1.0"
+
+[[package]]
 name = "defining_an_enum"
 version = "0.1.0"
 
