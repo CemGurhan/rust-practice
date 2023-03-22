@@ -55,6 +55,10 @@ name = "hello_module_tree_example"
 version = "0.1.0"
 
 [[package]]
+name = "lifetimes"
+version = "0.1.0"
+
+[[package]]
 name = "making_structs_and_enums_public"
 version = "0.1.0"
 
