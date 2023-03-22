@@ -1,5 +1,8 @@
 use std::iter::Sum;
 
+pub mod conditional_bounds;
+pub mod blanket_implementations;
+
 // A trait allows us to define some functionality that
 // can be shared amongst different types. traits are 
 // very similar to interfaces.
@@ -65,3 +68,36 @@ pub fn notfiy_two(item1: &(impl Summary + std::fmt::Display)) {
 pub fn notify_two_generic<T: Summary + std::fmt::Display>(item1: &T) {
     
 }
+
+// We can simplify a function signature down using the `where` clause. This
+// can be useful when we have multiple arguments to a function with trait 
+// bounds, making the function hard to read.
+
+// For example, this:
+pub fn bad_signature<T: std::fmt::Display + Clone, U: std::fmt::Debug + Clone>(item1: &T, item2: &U) -> i32{
+    3
+}
+// Can become this:
+pub fn good_signature<T, U>(item1: T, item2: U) -> i32 
+where 
+    T: std::fmt::Display + Clone,
+    U: std::fmt::Debug + Clone, 
+{
+    4
+}
+
+// We can also return types that implement specific traits
+pub fn returner() -> impl Summary {
+    NewsArticle { headline: todo!(), location: todo!(), author: todo!(), content: todo!() }
+}
+
+// We can only return one type that implements a trait, and not either of two.
+// This would fail, even though `Tweet` implements `Summary`:
+
+// pub fn returner_switch(switch: bool) -> impl Summary {
+//     if switch {
+//         NewsArticle { headline: todo!(), location: todo!(), author: todo!(), content: todo!() }
+//     } else {
+//         Tweet {}
+//     }
+// }
