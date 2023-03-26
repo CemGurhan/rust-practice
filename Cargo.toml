@@ -32,6 +32,5 @@ members = [
     "traits/default_implementations",
     "lifetimes",
     "testing_practice/adder",
-    "testing_practice/integration_tests"
     # Add additional projects here
 ]
