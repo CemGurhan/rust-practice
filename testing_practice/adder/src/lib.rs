@@ -10,6 +10,28 @@ impl Rectangle {
     }
 }
 
+pub struct Guess {
+    value: i32,
+}
+
+impl Guess {
+    pub fn new(value: i32) -> Guess {
+        if value < 1 {
+            panic!(
+                "Guess value must be greater than or equal to 1, got {}.",
+                value
+            );
+        } else if value > 100 {
+            panic!(
+                "Guess value must be less than or equal to 100, got {}.",
+                value
+            );
+        }
+
+        Guess { value }
+    }
+}
+
 fn add_two(number: i32) -> i32 {
     number + 2
 }
@@ -77,4 +99,39 @@ mod tests {
         );
     }
 
+    // We can use the `should_panic` attribute to assert that our tested code
+    // panics
+    #[test]
+    #[should_panic]
+    fn greater_than_100() {
+        Guess::new(200);
+    }
+
+    // `should_panic` can be imprecise, as a the code we're testing could panic for 
+    // any reason outside of the reason we were expecting it to panic for.
+    // We can use the `expected` paramter and supply it with a string or substring of
+    // the message we're expecting the code to panic with, to be more precise
+    #[test]
+    #[should_panic(expected = "less than or equal to 100")]
+    fn greater_than_100_precise() {
+        Guess::new(200);
+    }
+
+    // You can aslo return a `Result<T, E>` enum in a test if the test failure doesnt
+    // require a panic. This will allow you to use the `?` operator
+    #[test]
+    fn return_a_result() -> Result<(), String> {
+        if 2 + 2 == 4 {
+            Ok(())
+        } else {
+            Err(String::from("2 + 2 != 4"))
+        }
+    }
+
+    // When testing for an `Err` variant, don't return a Result<T,E>, instead use the 
+    // `assert!` macro:
+    // #[test]
+    // fn no_result_enum() {
+    //     assert!(value.is_err())
+    // }
 }

@@ -59,6 +59,10 @@ name = "hello_module_tree_example"
 version = "0.1.0"
 
 [[package]]
+name = "integration_tests"
+version = "0.1.0"
+
+[[package]]
 name = "lifetimes"
 version = "0.1.0"
 
