@@ -1,5 +1,6 @@
-// As we can see, the lifetime of `result` is less than the overlap of x and y's lifetimes ('a)
+pub mod struct_lifetimes;
 
+// As we can see, the lifetime of `result` is less than the overlap of x and y's lifetimes ('a)
 fn main() {
     let string1 = String::from("hi");      // ------------------------- x 
     {                                                                       //  |  
@@ -21,7 +22,7 @@ fn main() {
 // The lifetime `'a` is as long as the overlap between the lifetimes
 // of x and y. The return value must have a lifetime smaller than this
 // overlap
-fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
+fn longest<'a, T: PartialOrd + ExactSizeIterator>(x: &'a T, y: &'a T) -> &'a T {
     if x.len() > y.len() {
         x
     } else {

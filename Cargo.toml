@@ -30,6 +30,7 @@ members = [
     "generic_data_types",
     "traits/aggregator",
     "traits/default_implementations",
-    "lifetimes"
+    "lifetimes",
+    "adder"
     # Add additional projects here
 ]
