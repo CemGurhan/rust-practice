@@ -14,6 +14,10 @@ fn add_two(number: i32) -> i32 {
     number + 2
 }
 
+fn greet(name: &str) -> String {
+    format!("Hello {}!", name)
+}
+
 // Rust will create a test runner binary for us, which will run 
 // functions with the `test` attributes attached to them
 // Attributes are like metadata we attach to a function
@@ -24,6 +28,7 @@ mod tests {
     // out from the outer scope
     use super::*;
 
+    #[test]
     fn large_can_hold_small() {
         let larger = Rectangle { width: 10, height: 12 };
         let smaller = Rectangle { width: 8, height: 7 };
@@ -32,6 +37,7 @@ mod tests {
         assert!(larger.can_hold(&smaller));
     }
 
+    #[test]
     fn small_cannot_hold_large() {
         let larger = Rectangle { width: 10, height: 12 };
         let smaller = Rectangle { width: 8, height: 7 };
@@ -42,10 +48,12 @@ mod tests {
     // We can use the `assert_ne!` macro to assert that two values are 
     // not the same. This can be useful when we dont know exactly what 
     // a value will be, but we know exactly what it won't be
+    #[test]
     fn should_add_two() {
         assert_eq!(4, add_two(2));
     }
 
+    #[test]
     fn cannot_be_negative_one() {
         assert_ne!(-1, add_two(10));
     }
@@ -54,4 +62,19 @@ mod tests {
     // to print out why they may have failed.
     // Hence, any items we use in these assertions must implement the
     // derivable traits `Debug` and `PartialOrd`
+
+    // We can add messages to our assertions to better explain why theyve 
+    // failed. This can be done as further arguments to assertion macros.
+    // This is because assert macros can take `format!` as a further optional
+    // argument
+    #[test]
+    fn greeting_should_contain_name() {
+        let result = greet("test_name");
+        assert!(
+            result.contains("test_name"),
+            "Greeting did not contain expected name: {}",
+            result
+        );
+    }
+
 }
