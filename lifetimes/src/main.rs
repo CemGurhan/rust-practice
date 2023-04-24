@@ -5,7 +5,7 @@ fn main() {
     let string1 = String::from("hi");      // ------------------------- x 
     {                                                                       //  |  
         let string2 = String::from("bye"); // ------------'a  y     //  |  
-        let result = longest(&string1, &string2);  //   |  |     //  |  
+        let result = longest(&string1, &string2);  //   |     //  |  
         println!("Longest string: {}", result);               //   |  |     //  |   
     } // -------------------------------------------------------------      //  |  
 }  // --------------------------------------------------------------------------- 
